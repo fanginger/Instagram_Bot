@@ -1,34 +1,33 @@
-"""
-Created on : 2021/1/25
+# Selenium_ig按愛心
 
-author : Ginger
-"""
+## Goal
 
-import selenium.common.exceptions
-from selenium import webdriver
-import time
-from selenium.webdriver.common.keys import Keys
-import random
+Instagram bot using Selenium 
 
-exe_path = '/Users/ginger/Desktop/chromedriver'
-username = 'afufu_dongua'
-password = 'k148426'
-url = 'https://www.instagram.com/'
-back_pass = '65970823'
-tags=['dogsofinstagram','dogofinsta','thedodo','cutedog','mydog','farmlife']
+我按愛心，希望增加別人可能會按回來的機率
 
+### Technologies used
 
+- Python
+- Selenium
 
+### Code
+
+### 🖊️ 設定webdriver、輸入帳號密碼
+
+這邊登入自己帳號密碼、在上面有寫自己的帳密。而這邊back_click_fun 就是使用備用密碼雙重認證得進去得。
+
+必須輸入您的帳號密碼，以方便自動登入。tags則是輸入想要到哪個tag按讚，因此這些tag通常要與品牌最有相關。
+
+```python
 def path():
     global chrome
     chrome = webdriver.Chrome(executable_path=exe_path)
-
 
 def url_name(url):
     # the web page opens up
     chrome.get(url)
     time.sleep(4)
-
 
 def login(username, your_password):
     usern = chrome.find_element_by_name("username")
@@ -57,7 +56,15 @@ def back_click_fun():
      back_click = chrome.find_element_by_class_name("sqdOP")
      back_click.click()
      time.sleep(5)
+```
 
+### 🖊️  按愛心
+
+這邊跑每一個設定的tag 網址，然後按愛心是最新的
+
+chrome.find_elements_by_class_name('_9AhH0')[9].click() 寫在這
+
+```python
 def click_like():
     for tag in tags:
           chrome.get("https://www.instagram.com/explore/tags/" + tag) 
@@ -70,21 +77,12 @@ def click_like():
                          print('按過了')
                     else:
                          time.sleep(random.randint(1,3))
-                         chrome.find_element_by_xpath('//*[@aria-label="讚"]').click()
-                         print('已按完')
+                         try:
+                              chrome.find_element_by_xpath('//*[@aria-label="讚"]').click()
+                              print('已按完')
+         
                chrome.find_elements_by_class_name('coreSpriteRightPaginationArrow')[0].click()
                time.sleep(random.randint(1,5))
           print(tag +'按完了')
-          time.sleep(random.randint(7,15)) 
-
-path()
-time.sleep(1)
-url_name(url)
-
-login(username, password)
-
-back_click_fun()
-
-click_like()
-
-chrome.close()
+          time.sleep(random.randint(7,15))
+```
