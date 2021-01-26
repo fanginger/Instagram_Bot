@@ -10,11 +10,11 @@ import time
 from selenium.webdriver.common.keys import Keys
 import random
 
-exe_path = '/Users/ginger/Desktop/chromedriver'
-username = 'afufu_dongua'
-password = 'k148426'
+exe_path = ''
+username = ''
+password = ''
 url = 'https://www.instagram.com/'
-back_pass = '65970823'
+back_pass = ''
 tags=['dogsofinstagram','dogofinsta','thedodo','cutedog','mydog','farmlife']
 
 

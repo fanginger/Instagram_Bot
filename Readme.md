@@ -86,3 +86,9 @@ def click_like():
           print(tag +'按完了')
           time.sleep(random.randint(7,15))
 ```
+
+### REL.
+
+[小編神器，IG愛心大放送，selenium在IG上的實做](https://medium.com/@ivanyang0606/%E5%B0%8F%E7%B7%A8%E7%A5%9E%E5%99%A8-ig%E6%84%9B%E5%BF%83%E5%A4%A7%E6%94%BE%E9%80%81-selenium%E5%9C%A8ig%E4%B8%8A%E7%9A%84%E5%AF%A6%E5%81%9A-c891d95526bd)
+
+[Like instagram pictures using Selenium | Python - GeeksforGeeks](https://www.geeksforgeeks.org/like-instagram-pictures-using-selenium-python/)
