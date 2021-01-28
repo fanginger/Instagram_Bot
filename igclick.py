@@ -10,11 +10,13 @@ import time
 from selenium.webdriver.common.keys import Keys
 import random
 
-exe_path = ''
-username = ''
-password = ''
+exe_path = '/Users/ginger/Desktop/chromedriver'
+username = 'afufu_dongua'
+# username = 'ginger_94090'
+password = 'k148426'
+# password = 'ginger fan'
 url = 'https://www.instagram.com/'
-back_pass = ''
+back_pass = '74895021'
 tags=['dogsofinstagram','dogofinsta','thedodo','cutedog','mydog','farmlife']
 
 
@@ -65,13 +67,16 @@ def click_like():
           chrome.find_elements_by_class_name('_9AhH0')[9].click() #點選圖片(選擇最新發的)
           for i in range(random.randint(40,50)):
                if i % 10 == 1:
-                    time.sleep(random.randint(5,20))
+                    time.sleep(random.randint(5,10))
                     if len(chrome.find_elements_by_xpath('//*[@aria-label="Unlike"]')) != 0 or len(chrome.find_elements_by_xpath('//*[@aria-label="收回讚"]')) != 0:
                          print('按過了')
                     else:
-                         time.sleep(random.randint(1,3))
-                         chrome.find_element_by_xpath('//*[@aria-label="讚"]').click()
-                         print('已按完')
+                         try:
+                              chrome.find_element_by_xpath('//*[@aria-label="讚"]').click()
+                              print('已按完')
+                         except:
+                              print('圖片沒跑出來，直接下一頁')
+
                chrome.find_elements_by_class_name('coreSpriteRightPaginationArrow')[0].click()
                time.sleep(random.randint(1,5))
           print(tag +'按完了')
