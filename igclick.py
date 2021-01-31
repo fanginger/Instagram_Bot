@@ -16,10 +16,10 @@ username = 'afufu_dongua'
 password = 'k148426'
 # password = 'ginger fan'
 url = 'https://www.instagram.com/'
-back_pass = '74895021'
-tags=['dogsofinstagram','dogofinsta','thedodo','cutedog','mydog','farmlife']
+back_pass = '69412873'
+tags=['dogsofinstagram','cutedog','mydog','doglife','dogoftheday','doglover']
 
-
+# TODO farmlife 標籤都無法跑圖片
 
 def path():
     global chrome
@@ -65,9 +65,9 @@ def click_like():
           chrome.get("https://www.instagram.com/explore/tags/" + tag) 
           time.sleep(random.randint(2,5))
           chrome.find_elements_by_class_name('_9AhH0')[9].click() #點選圖片(選擇最新發的)
-          for i in range(random.randint(40,50)):
-               if i % 10 == 1:
-                    time.sleep(random.randint(5,10))
+          time.sleep(random.randint(5,10))
+          for i in range(50):
+               if random.randint(1,2) == 1:
                     if len(chrome.find_elements_by_xpath('//*[@aria-label="Unlike"]')) != 0 or len(chrome.find_elements_by_xpath('//*[@aria-label="收回讚"]')) != 0:
                          print('按過了')
                     else:
@@ -81,6 +81,15 @@ def click_like():
                time.sleep(random.randint(1,5))
           print(tag +'按完了')
           time.sleep(random.randint(7,15)) 
+# def tell_priviate():
+#      user_type = chrome.find_element_by_xpath("/html/body/script[1]")
+#      user_type_attr = user_type.get_attribute("innerHTML")
+#      fun = lambda x : True if '"is_private":true' in x else False
+#      if '"is_private":true' in user_type_attr:
+#           return True
+#      else:
+#           return False
+
 
 path()
 time.sleep(1)
@@ -93,3 +102,5 @@ back_click_fun()
 click_like()
 
 chrome.close()
+
+
